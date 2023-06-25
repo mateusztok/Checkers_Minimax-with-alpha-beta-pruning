@@ -36,7 +36,7 @@ class PlayerAI:
                 click_row, click_col, target_row, target_col = move
                 new_board = self.simulate_move(board, click_row, click_col, target_row, target_col)
                 value, _ = self.minimax(new_board, self.opposite_color(current_color), maximizing_color, alpha, beta, depth - 1)
-                if value > best_value:
+                if value >= best_value:
                     best_value = value
                     best_move = move
                 alpha = max(alpha, best_value)
@@ -50,7 +50,7 @@ class PlayerAI:
                 click_row, click_col, target_row, target_col = move
                 new_board = self.simulate_move(board, click_row, click_col, target_row, target_col)
                 value, _ = self.minimax(new_board, self.opposite_color(current_color), maximizing_color, alpha, beta, depth - 1)
-                if value < best_value:
+                if value <= best_value:
                     best_value = value
                     best_move = move
                 beta = min(beta, best_value)

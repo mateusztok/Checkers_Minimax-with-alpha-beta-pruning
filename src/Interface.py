@@ -8,7 +8,10 @@ class Interface:
         self.canvas = tk.Canvas(self.master, width=400, height=450)
         self.canvas.pack()
         self.draw_board()
-        self.current_player_label = self.canvas.create_text(200, 425, text="Ruch gracza: " + current_player.color, fill="black", font=("Arial", 14))
+        if current_player.color == "red":
+            self.current_player_label = self.canvas.create_text(200, 425, text="Ruch gracza: Czerwony", fill="black", font=("Arial", 14))
+        else:
+            self.current_player_label = self.canvas.create_text(200, 425, text="Ruch gracza: Niebieski", fill="black", font=("Arial", 14))
         self.current_player = None
 
     def draw_board(self):
@@ -66,7 +69,10 @@ class Interface:
 
         self.canvas.delete(self.current_player_label)
         self.current_player = current_player
-        self.current_player_label = self.canvas.create_text(200, 425, text="Ruch gracza: " + current_player.color, fill="black", font=("Arial", 14))
+        if current_player.color == "red":
+            self.current_player_label = self.canvas.create_text(200, 425, text="Ruch gracza: Czerwony", fill="black", font=("Arial", 14))
+        else:
+            self.current_player_label = self.canvas.create_text(200, 425, text="Ruch gracza: Niebieski", fill="black", font=("Arial", 14))
         self.canvas.update()
         return True
 
